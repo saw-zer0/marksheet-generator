@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report card generator</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css">
+
+    <script src="./js/index.js" defer></script>
+    <script src="./js/classSelector.js" defer></script>
+    <script src="./js/subjectEditor.js" defer></script>
+</head>
+
+<body>
+
+    <h1 class="display-3 text-center">
+        Report Card Generator
+    </h1>
+
+    <!--class dropdown-->
+    <div class="container">
+        <form id="class-form">
+            <div class="dropdown">
+                <label for="class-selector">Class: </label>
+                <select name="School-class" id="class-selector">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+        </form>
+            <div class="form-group">
+                <label for="view-report"></label>
+                <buttom id="view-report" class="btn btn-primary">View Report</buttom>
+            </div>
+            <div class="form-group">
+                <label for="edit-subject"></label>
+                <a id="edit-subject" class="btn btn-primary" href="./subjects_editor.html">Add/Remove Subjects</a>
+            </div>
+            <div class="form-group">
+                <label for="edit-report"></label>
+                <a id="edit-report" class="btn btn-primary">Edit Report</a>
+            </div>
+    </div>
+
+    <!--report editor form and table-->
+    <div class="position-absolute" id="report-editor" style="visibility: collapse;">
+        <div class="container mt-4">
+            <form id="report-form">
+                <div class="form-group">
+                    <label for="student-name">Name</label>
+                    <input type="text" id="student-name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="school-class">Class</label>
+                    <input type="number" id="school-class" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="roll">Roll Number</label>
+                    <input type="number" id="roll" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="attendance">Attendance</label>
+                    <input type="number" id="attendance" class="form-control">
+                </div>
+
+                <div id="subjects">
+                    <div class="form-group">
+                        <label for="Nepali">Nepali</label>
+                        <input type="text" id="nepali" data-subject>
+                    </div>
+                    <div class="form-group">
+                        <label for="English">English</label>
+                        <input type="text" id="english" data-subject>
+                    </div>
+                    <div class="form-group">
+                        <label for="Math">Mathematics</label>
+                        <input type="text" id="math" data-subject>
+                    </div>
+                    <div class="form-group">
+                        <label for="Social">Social Studies</label>
+                        <input type="text" id="social" data-subject>
+                    </div>
+                    <div class="form-group">
+                        <label for="science">Science & Env</label>
+                        <input type="text" id="science" data-subject>
+                    </div>
+                    <div class="form-group">
+                        <label for="computer">Computer</label>
+                        <input type="text" id="computer" data-subject>
+                    </div>
+                    <div class="form-group">
+                        <label for="math2">Maths II</label>
+                        <input type="text" id="math2" data-subject>
+                    </div>
+                    <div class="form-group">
+                        <label for="English2">English II</label>
+                        <input type="text" id="english2" data-subject>
+                    </div>
+                </div>
+                <div id="form-group">
+                    <button id="add-student" class="btn btn-primary btn-block">Add Student</button>
+                </div>
+
+            </form>
+            <table class="table mt-5">
+                <thead>
+                    <tr>
+                        <th>R/n</th>
+                        <th>Name</th>
+                        <th>Nepali</th>
+                        <th>English</th>
+                        <th>Mathematics</th>
+                        <th>Social Studies</th>
+                        <th>Science & Env</th>
+                        <th>Computer</th>
+                        <th>Maths II</th>
+                        <th>English II</th>
+                        <th>Total</th>
+                        <th>%</th>
+                        <th>%Div.</th>
+                        <th>Rank</th>
+                        <th>Attendance</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="result-list"></tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!--report table-->
+    <div class="position-absolute" style="visibility: collapse;">
+        <table class="table mt-5" id="report-for-teacher">
+            <thead>
+                <tr>
+                    <th>R/n</th>
+                    <th>Name</th>
+                    <th>Nepali</th>
+                    <th>English</th>
+                    <th>Mathematics</th>
+                    <th>Social Studies</th>
+                    <th>Science & Env</th>
+                    <th>Computer</th>
+                    <th>Maths II</th>
+                    <th>English II</th>
+                    <th>Total</th>
+                    <th>%</th>
+                    <th>%Div.</th>
+                    <th>Rank</th>
+                    <th>Attendance</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="result-list"></tbody>
+        </table>
+    </div>
+
+    <!--add remove subjects-->
+    <div id="subject-editor" class="container mt-4 position-absolute" style="visibility: collapse;">
+        <form>
+            <div class="form-group">
+                <label for="subject-name">Subject Name</label>
+                <input type="text" class="form-control" id="subject-name">
+            </div>
+            <div class="form-group">
+                <label for="full-marks">Full Marks</label>
+                <input type="number" id="full-marks">
+            </div>
+            <div class="form-group">
+                <label for="pass-marks">Pass Marks</label>
+                <input type="number" id="pass-marks">
+            </div>
+            <button class="btn btn-block btn-primary" id="add-subject">Add Subject</button>
+        </form>
+
+        <table class="table mt-5">
+            <thead>
+                <th>subject</th>
+                <th>full-marks</th>
+                <th>pass-marks</th>
+            </thead>
+            <tbody id="subject-table">
+
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
