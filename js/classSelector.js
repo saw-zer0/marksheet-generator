@@ -9,6 +9,14 @@ report_editor.addEventListener('click',(e)=>{
 
     const html_div = document.getElementById("report-editor");
     visibility_toggle(html_div);
+
+    let subs=[];
+    SubjectStore.getSubjects().forEach(elem=>{
+        subs.push(elem.subjectName);
+    })
+
+    Ui.displayTableHead(subs);
+    Ui.displayInTable();
 })
 
 subject_editor.addEventListener('click',(e)=>{
@@ -18,6 +26,7 @@ subject_editor.addEventListener('click',(e)=>{
     visibility_toggle(html_div);
     SubjectUi.clearSubjectTable();
     SubjectUi.displaySubjects();
+    
 })
 
 view_report.addEventListener('click',(e)=>{
