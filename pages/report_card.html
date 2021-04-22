@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Card</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css">
+    
+
+    <script src="../js/html2pdf.bundle.min.js" defer></script>
+    <script src="../js/pdfmaker.js" defer></script>
+    <script src="./js/classSelector.js" defer></script>
+    <script src="../js/index.js"></script>
+
+</head>
+
+<body>
+    <div class="border text-center h-100 m-5 p-4">
+        <header>
+            <h3>Shree Dattatrya Basic School</h3>
+            <div>Tachapal, Bhaktapur-9</div>
+            <div>SECOND TERMINAL EXAMATION - 2077</div>
+            <div><br>MARK - STATEMENT<br></div>
+        </header>
+        <br>
+        Name: <div id="student-name"></div>
+        Class: <div id="student-class"></div>
+        Roll No. : <div id="roll-no"></div>
+
+        <br>
+        <table class="table table-bordered m-auto">
+            <thead>
+                <tr>
+                    <th>S.N</th>
+                    <th>SUBJECT</th>
+                    <th>FULL<br>MARKS</th>
+                    <th>PASS<br>MARKS</th>
+                    <th>OBTAINED<br>MARKS</th>
+                    <th>REMARKS</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <br>
+        <br>
+        <div id="result-details" class="border">
+            <div>PERCENTAGE:</div>
+            <div>DIVISION:</div>
+            <div>ATTENDANCE:</div>
+            <div>POSITION:</div>
+        </div>
+        <br>
+        <div id="teachers-remarks" class="border">
+            <h4>TEACHER'S REMARKS:</h4>
+        </div>
+        <br>
+    </div>
+</body>
+
+</html>

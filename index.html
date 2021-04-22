@@ -8,12 +8,13 @@
     <title>Report card generator</title>
     <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css">
 
-    <script src="./js/index.js" defer></script>
+    <script src="./js/classes.js" defer></script>
     <script src="./js/classSelector.js" defer></script>
     <script src="./js/subjectEditor.js" defer></script>
+    <script src="./js/index.js" defer></script>
 </head>
 
-<body>
+<body class="overflow-auto">
 
     <h1 class="display-3 text-center">
         Report Card Generator
@@ -42,13 +43,15 @@
                 <label for="view-report"></label>
                 <buttom id="view-report" class="btn btn-primary">View Report</buttom>
             </div>
-            <div class="form-group">
-                <label for="edit-subject"></label>
-                <a id="edit-subject" class="btn btn-primary" href="./subjects_editor.html">Add/Remove Subjects</a>
-            </div>
+            
             <div class="form-group">
                 <label for="edit-report"></label>
                 <a id="edit-report" class="btn btn-primary">Edit Report</a>
+            </div>
+
+            <div class="form-group">
+                <label for="edit-subject"></label>
+                <a id="edit-subject" class="btn btn-primary">Add/Remove Subjects</a>
             </div>
     </div>
 
@@ -61,10 +64,6 @@
                     <input type="text" id="student-name" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="school-class">Class</label>
-                    <input type="number" id="school-class" class="form-control">
-                </div>
-                <div class="form-group">
                     <label for="roll">Roll Number</label>
                     <input type="number" id="roll" class="form-control">
                 </div>
@@ -72,41 +71,10 @@
                     <label for="attendance">Attendance</label>
                     <input type="number" id="attendance" class="form-control">
                 </div>
+                <div id="form-subjects">
 
-                <div id="subjects">
-                    <div class="form-group">
-                        <label for="Nepali">Nepali</label>
-                        <input type="text" id="nepali" data-subject>
-                    </div>
-                    <div class="form-group">
-                        <label for="English">English</label>
-                        <input type="text" id="english" data-subject>
-                    </div>
-                    <div class="form-group">
-                        <label for="Math">Mathematics</label>
-                        <input type="text" id="math" data-subject>
-                    </div>
-                    <div class="form-group">
-                        <label for="Social">Social Studies</label>
-                        <input type="text" id="social" data-subject>
-                    </div>
-                    <div class="form-group">
-                        <label for="science">Science & Env</label>
-                        <input type="text" id="science" data-subject>
-                    </div>
-                    <div class="form-group">
-                        <label for="computer">Computer</label>
-                        <input type="text" id="computer" data-subject>
-                    </div>
-                    <div class="form-group">
-                        <label for="math2">Maths II</label>
-                        <input type="text" id="math2" data-subject>
-                    </div>
-                    <div class="form-group">
-                        <label for="English2">English II</label>
-                        <input type="text" id="english2" data-subject>
-                    </div>
                 </div>
+
                 <div id="form-group">
                     <button id="add-student" class="btn btn-primary btn-block">Add Student</button>
                 </div>
@@ -115,42 +83,24 @@
             <table class="table mt-5">
                 <thead id="table-head">
                 </thead>
-                <tbody id="result-list"></tbody>
+                <tbody id="result-list" class="result-list"></tbody>
             </table>
         </div>
     </div>
 
 
     <!--report table-->
-    <div class="position-absolute" style="visibility: collapse;">
-        <table class="table mt-5" id="report-for-teacher">
-            <thead>
-                <tr>
-                    <th>R/n</th>
-                    <th>Name</th>
-                    <th>Nepali</th>
-                    <th>English</th>
-                    <th>Mathematics</th>
-                    <th>Social Studies</th>
-                    <th>Science & Env</th>
-                    <th>Computer</th>
-                    <th>Maths II</th>
-                    <th>English II</th>
-                    <th>Total</th>
-                    <th>%</th>
-                    <th>%Div.</th>
-                    <th>Rank</th>
-                    <th>Attendance</th>
-                    <th></th>
-                    <th></th>
-                </tr>
+    <div class="position-absolute" style="visibility: collapse;" id="view-report-for-teacher">
+        <table class="table mt-5">
+            <thead id="view-table-head">
             </thead>
-            <tbody id="result-list"></tbody>
+            <tbody class="result-list"  id="report-for-teacher"></tbody>
         </table>
     </div>
 
     <!--add remove subjects-->
     <div id="subject-editor" class="container mt-4 position-absolute" style="visibility: collapse;">
+        <h4 style="color: red;"><b><i>WARNING: editing subjects of a class will delete all data of that class</i></b></h4>
         <form>
             <div class="form-group">
                 <label for="subject-name">Subject Name</label>
